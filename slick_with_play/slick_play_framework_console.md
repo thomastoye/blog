@@ -111,9 +111,32 @@ Or create a new session and pass that every time you need it (you don't want to 
     TableQuery[Products].list(session) // example usage
     TableQuery[Products].insert((1, "name", "description"))(session) // example insert
 
+Since the session can be passed as an implicit val, we can also do this, and avoid passing it altogether:
+
+    implicit val session = play.api.db.slick.DB.createSession
+    TableQuery[Products].list // example usage
+    TableQuery[Products].insert(1, "name", "description") // example insert
+
+### Loading a helper from the REPL
+
+Typing all of this into the REPL gets tiring, so one last thing to make our lives easier: we'll create a Scala script and load it from the Scala REPL.
+
+    import play.core.StaticApplication, models._, play.api.Play.current, scala.slick.jdbc.JdbcBackend.Session, play.api.db.slick.Config.driver.simple._
+
+    new StaticApplication(new java.io.File("."))
+    implicit val session = play.api.db.slick.DB.createSession
+    val tq = TableQuery[Products]
+
+    println("An implicit Session is now available")
+
+I saved it as `db.scala` in a folder `helpers` in my project root. You can now use the REPL's special `:load` command to load it:
+
+
+![A Scala console session where :load helpers/db.scala is performed as an example](repl_zen.png)
+
 ## Using case classes instead of tuples
 
-    class Products(tag: Tag) extends Table[Product](tag, "MY_PRODUCTS_TABLE") {
+    class Products(tag: Tag) extends Table[Product](tag, "MY_PRODUCTS_TABLE") { 
       def id = column[Long]("ID", O.PrimaryKey)
       def name = column[String]("NAME")
       def description = column[String]("DESC")
@@ -122,6 +145,36 @@ Or create a new session and pass that every time you need it (you don't want to 
     }
 
 ## Intermezzo: `tupled` and `unapply` with case classes
+
+What's up with `tupled` and `unapply`?
+
+    case class Product(id: Long, name: String, description: String)
+
+Remember that we can create new instances like this:
+
+    scala> Product(1, "Laptop", "A brand new laptop")
+    res0: Product = Product(1,Laptop,A brand new laptop)
+
+Also remember that this is actually sugar for calling the `apply` method:
+
+    scala> Product.apply(1, "Laptop", "A brand new laptop")
+    res1: Product = Product(1,Laptop,A brand new laptop)
+
+`unapply` sounds like it's the inverse of `apply`. It's defined on the companion object of the case class:
+
+    scala> Product.unapply(res1)
+    res2: Option[(Long, String, String)] = Some((1,Laptop,A brand new laptop))
+
+Hmm, we got back an Option of a triple (`Tuple3`). It returns an `Option` for the reason defined [here](http://docs.scala-lang.org/tutorials/tour/extractor-objects.html) ("[...] If it returns a single sub-value of type `T`, return an `Option[T]`"). `tupled` goes the other way around: it takes a `Tuple3` and constructs a `Product` for us. This method is also defined on the companion object:
+
+    scala> Product.tupled (2,"Desktop", "A new desktop")
+    res3: Product = Product(2,Desktop,A new desktop)
+
+The following is only logical then:
+
+    scala> Product(1, "Laptop", "A brand new laptop") == Product.tupled(Product.unapply(Product(1, "Laptop", "A brand new laptop")).get)
+    res4: Boolean = true
+
 
 ## Classes you'll meet
 
