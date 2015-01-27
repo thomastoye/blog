@@ -256,7 +256,7 @@ What if we want an exact match? We want the product with id 2:
     <console>:19: error: Type T cannot be a query condition (only Boolean, Column[Boolean] and Column[Option[Boolean]] are allowed
                   tq.filter(_.id == 2L)
 
-This is because we forgot we're not working on real Scala collection. We're working with Slick here. Slick merely provides a collection-like API, that it then translates into SQL queries. To do that, it "lifts" types, you can read about that [here](http://slick.typesafe.com/doc/2.1.0/introduction.html#index-6). The take-away is that you can't use `==` because Slick can't override that, instead you should use `===` (and `=!=` instead of `!=`):
+This is because we forgot we're not working on real Scala collection. We're working with Slick here. Slick merely provides a collection-like API, that it then translates into SQL queries. To do that, it "lifts" types, you should read about that [here](http://slick.typesafe.com/doc/2.1.0/introduction.html#index-6) first. The take-away is that you can't use `==` because Slick can't override that, instead you should use `===` (and `=!=` instead of `!=`):
 
     scala> tq.filter(_.id === 2L).run
     res7: Seq[models.Products#TableElementType] = Vector(Product(2,Eggs,A carton of eggs))
@@ -445,6 +445,65 @@ Note on `O.NotNull` and `O.Nullable`: you should usually not specify these. Slic
 ## Multiple primary keys
 
 ## Mapping columns
+
+As mentioned before, you can't store arbritrary types in the database. Those that can't be saved have to be mapped either as a table (classes) or to other types. You can map a column using [MappedColumnType](http://slick.typesafe.com/doc/2.1.0/api/index.html#scala.slick.memory.MemoryQueryingProfile$MappedColumnType).
+
+Let's say we want to track events. We want to keep track of the id, description and timestamp of the event. The timestamp keeps track of when the event happened:
+
+    case class Event(id: Long, description: String, timestamp: java.util.Date)
+
+    class Events(tag: Tag) extends Table[Event](tag, "EVENTS") {
+      def id = column[Long]("id", O.PrimaryKey)
+      def description = column[String]("description")
+      def timestamp = column[java.util.Date]("timestamp")
+
+      def * = (id, description, timestamp) <> (Event.tupled, Event.unapply _)
+    }
+
+This won't work, `java.util.Date` isn't a type you can persist. So we'll write a mapper from `java.util.Date` to `java.sql.Timestamp`. `java.util.Date` cannot be directly persisted in the database, so we "map" it to a type that can (and stores the same kind of data), `java.sql.Timestamp`. We could also have mapped the date to a `Long`, or to a `String`, but a timestamp is what we want.
+
+    implicit val javaUtilDateMapper = MappedColumnType.base[java.util.Date, java.sql.Timestamp] (
+        d => new java.sql.Timestamp(d.getTime),
+        d => new java.sql.Date(d.getTime)
+    )
+
+
+1. We define this as an `implicit val`. This will allows us to ignore this is a mapped column for all practical purposes.
+1. The name we give this `val` doesn't matter, but well-named things are nice
+1. We call the factory method `MappedColumnType.base[T,U](tmap: T => U, tcomap: U => T)`. `T` is the type we want to use externally, in this case, `java.util.Date`. `U` is what we want the database to use, here: `java.sql.Timestamp`. Then come `tmap` and `tcomap`, which are functions that define how to convert from `T` to `U` and back.
+1. We pass the conversion functions as anonymous functions.
+
+We'll place this implicit in the table. The full code now looks like:
+
+    case class Event(id: Long, description: String, timestamp: java.util.Date)
+
+    class Events(tag: Tag) extends Table[Event](tag, "EVENTS") {
+        implicit val javaUtilDateMapper = MappedColumnType.base[java.util.Date, java.sql.Timestamp] (
+            d => new java.sql.Timestamp(d.getTime),
+            d => new java.sql.Date(d.getTime)
+        )
+        def id = column[Long]("id", O.PrimaryKey)
+        def description = column[String]("description")
+        def timestamp = column[java.util.Date]("timestamp")
+    
+        def * = (id, description, timestamp) <> (Event.tupled, Event.unapply _)
+    }
+
+We can confirm this works:
+
+    scala> val ev = TableQuery[Events]
+    ev: scala.slick.lifted.TableQuery[models.Events] = scala.slick.lifted.TableQuery@626bcfa6
+
+    scala> ev += Event(1, "Mainframe is down", new java.util.Date)
+    res1: Int = 1
+
+    scala> ev.list
+    res2: List[models.Events#TableElementType] = List(Event(1,Mainframe is down,2015-01-26))
+
+    scala> res2(0).timestamp
+    res3: java.util.Date = 2015-01-26
+
+We pass in `java.util.Date`s and get back `java.util.Date`s, while not thinking about how it's saved in the database!
 
 ## Using Global.scala to inject sample data
 
