@@ -442,7 +442,65 @@ Remember how we used `O.PrimaryKey` to set a field as a primary key? That `O` is
 
 Note on `O.NotNull` and `O.Nullable`: you should usually not specify these. Slick will use nullable database fields by default if you use an `Option` type.
 
+### Auto-increment
+
+We don't always want to provide primary keys ourselves. Here, we want to save stores, but we'd rather have the database set the id:
+
+    case class Store(id: Long, name: String)
+    
+    class Stores(tag: Tag) extends Table[Store](tag, "STORES") {
+      def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
+      def name = column[String]("name")
+
+      def * = (id, name) <> (Store.tupled, Store.unapply _)
+    }
+
+We just give the id the `AutoInc` option. If we insert a `Store`, we can see the database sets the id:
+
+    scala> TableQuery[Stores] += Store(666, "Eurostock")
+    res0: Int = 1
+
+    scala> TableQuery[Stores].list
+    res1: List[models.Stores#TableElementType] = List(Store(1,Eurostock))
+
+Note that the id we provided ourselves (`666`) gets ignored, erased if you will, and the database sets a new one.
+
+That's not really kosher, we need to set an id that's non-sensical, since it gets overwritten by the database. It would be much nicer if we could make this explicit in the type system. We'll start with a new class that tracks locations:
+
+    case class Location(id: Long = None, address: String)
+
+It tracks locations with an id. Since we want this id to be set by the database, we'll make it an `Option`:
+
+    case class Location(id: Option[Long] = None, address: String)
+
+We would like to our table to look like this:
+
+    class Locations(tag: Tag) extends Table[Location](tag, "LOCATIONS") {
+      def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
+      def address = column[String]("address")
+
+      def * = ???
+    }
+
+So we save locations with an `id` `None`, and the database will generate an id. In case we insert a location with an id of `Some(x)`, it will be ignored and a new one will be generated. When we get data from the database, we want it to be of the correct type (`Location`), with the `id` being `Some(x)`. We can do that without a lot of pain, we define the `*` projection as
+
+    def * = (id.?, address) <> (Location.tupled, Location.unapply _)
+
+Note `id.?`: this method is defined on [PlainColumnExtensionMethods](http://slick.typesafe.com/doc/2.1.0/api/#scala.slick.lifted.PlainColumnExtensionMethods) and is used for `Option` types in the `*` projection.
+
+Now everything works as expected: we can pass in ids of `None` and we get back `Locations` with an `id` of `Some(x)`!
+
+    scala> TableQuery[Locations] += Location(None, "21 Jump Street")
+    res2: Int = 1
+
+    scala> TableQuery[Locations].list
+    res3: List[models.Locations#TableElementType] = List(Location(Some(1),21 Jump Street))
+
 ## Multiple primary keys
+
+You can use the `primaryKey` method in your `Table` definition to define multiple primary keys, the syntax is:
+
+    def pk = primaryKey("pk_name_here", (someColumn, anotherColumn, oneMoreForGoodMeasure))
 
 ## Mapping columns
 
