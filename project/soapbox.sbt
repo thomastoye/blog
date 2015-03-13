@@ -1,2 +1,3 @@
-addSbtPlugin("au.com.langdale" % "soapbox" % "0.5")
+lazy val root = (project in file(".")).dependsOn(assemblyPlugin)
 
+lazy val assemblyPlugin = uri("git://github.com/arnolddevos/Soapbox")
