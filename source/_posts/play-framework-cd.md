@@ -12,6 +12,8 @@ After we set up Dokku, we will integrate Jenkins and Dokku, for a full pipeline:
 
 The end result will be that a single commit starts a whole process: firstly, the code goes live on GitHub, then Jenkins builds and tests the application, then it goes live if the lights are green.
 
+<!-- more -->
+
 ## What's Dokku?
 
 [Dokku](https://github.com/progrium/dokku) is a project that aims to bring a Heroku-like PaaS system to your own servers. It uses a few components, namely [Docker](https://www.docker.com/). You can watch [this screencast](https://vimeo.com/68631325) for a quick introduction to Dokku. Docs can be found [here](http://progrium.viewdocs.io/dokku/index).

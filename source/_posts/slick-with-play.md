@@ -9,6 +9,8 @@ Here's my try at a easy to follow tutorial that will help you to get started wit
 
 There's a number of links to the Slick source code. Since most of them refer to line numbers, I linked to the state of a specific commit on GitHub, so we're both looking at the same thing, even when the code is updated.
 
+<!-- more -->
+
 ## Getting set up
 
 I mainly want to learn Slick to use it with Play!2. This guide will work with Play too, because it includes everything you need to get started (it starts the H2 database in memory, shows when your database needs to evolve with the SQL that will be run, it automatically generates those evolutions, an easy way to start the H2 web viewer, etc.). Keep in mind that I'm still learning, I may make mistakes in these recipes, or just be plain wrong.

@@ -2,6 +2,10 @@ title: My annoyances with ASP.NET MVC 5
 date: 2015/2/9 12:00:00
 ---
 
+After working in college with ASP.NET MVC 5 for a year, I found it to be a modern and decent framework. I still have some gripes with it, which I will outline in this post.
+
+<!-- more -->
+
 ## Route safety
 
 By far my biggest gripe. There is no reverse routing! I like to know at compile whether or not I made any typos when referencing a route.

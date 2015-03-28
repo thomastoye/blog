@@ -2,7 +2,9 @@ title: Continuous integration for Play! Framework 2 with Digital Ocean
 date: 2015/03/17 12:00:00
 ---
 
-GitHub offers a [student pack](https://education.github.com/pack) to those who are still studying. Among the long list is $100 in credit for [Digital Ocean](https://cloud.digitalocean.com). I took the opportunity to try out continuous integration with [Play! 2](https://www.playframework.com/).
+GitHub offers a [student pack](https://education.github.com/pack) to those who are still studying. Among the long list is $100 in credit for [Digital Ocean](https://cloud.digitalocean.com). I took the opportunity to try out continuous integration with [Play! 2](https://www.playframework.com/) and [Jenkins](https://jenkins-ci.org/).
+
+<!-- more -->
 
 ## Creating a new droplet
 
