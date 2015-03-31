@@ -5,7 +5,7 @@ tags:
 
 These are the steps I take after I image a new server. These are mainly personal notes, but I imagine someone else might be interested in my process.
 
-![The final product](final-product.png)
+![The final product](/2015/my-fresh-server-setup-steps/final-product.png)
 
 <!-- more -->
 
