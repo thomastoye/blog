@@ -162,6 +162,7 @@ These are pretty handy to have too:
 * `nethogs`: to investigate network usage
 * `tmux`: terminal multiplexer
 
+
     $ sudo apt-get install git htop nethogs tmux
 
 ## Dotfiles

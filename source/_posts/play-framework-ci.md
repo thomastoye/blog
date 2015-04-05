@@ -4,6 +4,8 @@ date: 2015/03/17 12:00:00
 
 GitHub offers a [student pack](https://education.github.com/pack) to those who are still studying. Among the long list is $100 in credit for [Digital Ocean](https://cloud.digitalocean.com). I took the opportunity to try out continuous integration with [Play! 2](https://www.playframework.com/) and [Jenkins](https://jenkins-ci.org/).
 
+![What we're going to build here](header.png)
+
 <!-- more -->
 
 ## Creating a new droplet
@@ -290,7 +292,7 @@ This concludes this blog post on continuous integration. To recap, continuous in
 
 ## Next steps
 
-In a future blog post, we'll look at continuous deployment: as soon as the build succeeds, it gets hot-deployed.
+In a future blog post, we'll look at continuous deployment: as soon as the build succeeds, it gets hot-deployed. (This blog post has now [been published](/2015/play-framework-ci/)!)
 
 ## Further reading
 
