@@ -2,7 +2,7 @@ title: Continuous deployment with Play! Framework 2
 date: 2015/03/27 16:00:00
 ---
 
-In a [previous blog post](), I discussed setting up Jenkins for continuous integration with Play. But today will go one step further: we will contiously deploy our application.
+In a [previous blog post](/2015/play-framework-ci/), I discussed setting up Jenkins for continuous integration with Play. But today will go one step further: we will contiously deploy our application.
 
 ## A high-level overview
 
@@ -236,6 +236,7 @@ Now try it with `sbt -DDATABASE_URL=jdbc:h2:mem:play -DDATABASE_DRIVER=org.h2.Dr
 * Make sure your `application.conf` sources the database driver and url from environment variable (as in the step above)
 * Remove the auto-generated evolutions (if you use them) from version control (if you store them in version control). If you write your own evolutions, you'll need to make sure they work with both H2 and Postgres: take a look at the _MODE_ parameter for H2 [here](https://www.playframework.com/documentation/2.3.0/Developing-with-the-H2-Database).
 * Update the `Procfile`: set `DATABASE_DRIVER` to `org.postgresql.Driver`, should look like this:
+
 
     web: target/universal/stage/bin/speelsysteem -Dhttp.port=${PORT} -DapplyEvolutions.default=true -DDATABASE_DRIVER=org.postgresql.Driver
 
