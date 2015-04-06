@@ -12,6 +12,8 @@ After we set up Dokku, we will integrate Jenkins and Dokku, for a full pipeline:
 
 The end result will be that a single commit starts a whole process: firstly, the code goes live on GitHub, then Jenkins builds and tests the application, then it goes live if the lights are green.
 
+![An example of Dokku at work](/2015/play-framework-cd/header.png)
+
 <!-- more -->
 
 ## What's Dokku?

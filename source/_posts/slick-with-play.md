@@ -63,7 +63,7 @@ That's our basic table. It represents a table in our database. Let's go over thi
 
 If you run your Play app, you should see this (if you don't, check your `application.conf`: did you uncomment all the database lines, did you add `slick.default="models.*"`?):
 
-![Database default needs evolution](slick-with-play/needs_evolution_1.png)
+![Database default needs evolution](needs_evolution_1.png)
 
 Slick generated the following SQL from our `Table`:
 
@@ -71,7 +71,7 @@ Slick generated the following SQL from our `Table`:
 
 Clicking on "Apply this script now!" will run that script against the database. You can stop Play and open the H2 web viewer by typing `h2-browser` on the sbt/activator console. If you then apply your script, you'll see a new table in there:
 
-![Products table in the H2 browser](slick-with-play/products_table_in_h2_browser.png)
+![Products table in the H2 browser](products_table_in_h2_browser.png)
 
 Keep in mind that you won't see anything in the H2 browser if you're doing things in the Scala REPL, because that starts a seperate H2 instance.
 
@@ -422,7 +422,7 @@ Typing all of this into the REPL gets tiring, so one last thing to make our live
 I saved it as `db.scala` in a folder `helpers` in my project root. You can now use the REPL's special `:load` command to load it:
 
 
-![A Scala console session where :load helpers/db.scala is performed as an example](slick-with-play/repl_zen.png)
+![A Scala console session where :load helpers/db.scala is performed as an example](repl_zen.png)
 
 ## Classes you'll meet
 

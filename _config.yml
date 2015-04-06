@@ -5,7 +5,7 @@
 # Site
 title: Thomas Toye
 subtitle: "def programmer: (Air => Code) = ???"
-description: You have arrived on the personal blog of Thomas Toye
+description: Personal blog of Thomas Toye. I'm a student interested in back-end web development, functional programming, and other cool stuff.
 author: Thomas Toye
 language:
 timezone: Europe/Brussels 
@@ -16,6 +16,9 @@ url: http://thomastoye.be/
 root: /
 permalink: :year/:title/
 permalink_defaults:
+
+google-analytics: "UA-48804932-1"
+disqus_shortname: thomastoye
 
 # Directory
 source_dir: source
@@ -64,7 +67,3 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 theme: landscape
 
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-  type:
