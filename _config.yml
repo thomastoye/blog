@@ -17,7 +17,7 @@ root: /
 permalink: :year/:title/
 permalink_defaults:
 
-google-analytics: "UA-48804932-1"
+google_analytics: "UA-48804932-1"
 disqus_shortname: thomastoye
 
 # Directory
@@ -66,4 +66,25 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: landscape
+
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Github: https://github.com/thomastoye
+  Resume: http://registry.jsonresume.org/thomastoye
+  last.fm: https://gist.github.com/thomastoye/a080ec1890fc86e34b60
+  Mail: mailto:toye.thomas@gmail.com
+  "GPG Key": https://gist.github.com/thomastoye/a080ec1890fc86e34b60
+  Facebook: http://facebook.com/thomas.toye
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Sidebar
+sidebar: right
+widgets:
+- archive
+- recent_posts
 
