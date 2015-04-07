@@ -1,4 +1,4 @@
-title: Continuous deployment with Play! Framework 2
+title: Continuous deployment for Play! Framework 2
 date: 2015/03/27 16:00:00
 ---
 

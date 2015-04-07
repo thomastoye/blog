@@ -1,5 +1,8 @@
 title: Slick 2.1 zero to hero
+date: 2015-02-15
 ---
+
+(Note: I do not plan to work any more on this post. I will probably rewrite it for Slick 3 when I find the time.)
 
 As I wanted to get started with Slick, I faced a problem every Slick padawan faces: the almost complete lack of resources. There's a rather confusing Activator tutorial, [some docs](http://slick.typesafe.com/doc/2.1.0/), the generated [ScalaDoc](http://slick.typesafe.com/doc/2.1.0/api/#package), and [Adam Mackler's Learning Slick](https://mackler.org/LearningSlick2/). But that's it. And I found neither of those to be particulary easy to read.
 
@@ -9,7 +12,7 @@ Here's my try at a easy to follow tutorial that will help you to get started wit
 
 There's a number of links to the Slick source code. Since most of them refer to line numbers, I linked to the state of a specific commit on GitHub, so we're both looking at the same thing, even when the code is updated.
 
-This post focuses mainly on using Slick with Play!2.O
+This post focuses mainly on using Slick with Play!2.0
 
 <!-- more -->
 
