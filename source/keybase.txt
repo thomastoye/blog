@@ -1,0 +1,70 @@
+==================================================================
+https://keybase.io/thomastoye
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://thomastoye.be
+  * I am thomastoye (https://keybase.io/thomastoye) on keybase.
+  * I have a public key with fingerprint 48BA F668 BCD9 8F10 40C0  6B8D 9465 63E8 A1D6 83E4
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "48baf668bcd98f1040c06b8d946563e8a1d683e4",
+            "host": "keybase.io",
+            "key_id": "946563e8a1d683e4",
+            "kid": "01016705ae107f7884554770adceab131c0b0183678b4a03821cfb8b83520b4278360a",
+            "uid": "56a94f11a8e2c40d3b446cf06d4d1419",
+            "username": "thomastoye"
+        },
+        "service": {
+            "hostname": "thomastoye.be",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1431618633,
+    "expire_in": 157680000,
+    "prev": "91aab56182fccbdcb672f2921a0e1138eeb96bae41e6c44ce25b8a16a3bfc570",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFtkm9sFEUYxu+uPdq7BvoHDEYBYVF6MddmZnd2dvfS1uoHK0mLf1piLNJzZnf2
+uvS4vd5tD+oBpioh1EoaKKRUE20TI7GxRvALLUViDmOsNJCK1WDERio2QBojqahV
+nG30k86Xybzv73lm3ifTuzzP4/N+WXp4c/2O3we9E3PUs7Up91RWoLbRKUSyQhtb
+2kwrEWOpZMpKOEJEQColJsYq1Q1NNSFAQAeYqoaGsIwlphJoYFViSAgLrXbaVXAb
+StKs0rJ5jR+ilsGr/8O3LTUABBArQCYMAsVUVBXJMlIUQAydEQolqAMKoCphRaWI
+AEkVoW5SlaqSLAKKRIW3AOF2HUt2MiYaMiEkKhN1BAyJIoR1E2ADGRBBzQXTLJUg
+OxmnnVZ7J0k7dicT9oYFXs9YOnNDcGf5D1NJGZcnU7Zj63act1odJxlxlU5n0kV3
+MRr9xyRKrYTBk+SCDEulLTshRCAndcdyXSGSIIYqlqSwwHYnrRSLWi4hK1gFfLnX
+sIybGySEyhwVTV2nhk6xIpqiJkICGISSyhjVMCUMQYZ1hHQmypSHjIlETV1WgOCO
+1Z6whYjMn0li3DJtxRLE6Ujl86GDB71v5nu8Ps8yv8/9DZ5goOTfLzI7XXTX+fD7
+irLtdbMzDxVLQ/KqxoLr5bIvPlEbu900PDvQcWrsyrEbo5GRKkHz7dv+LQocfae4
+77VDV7vHdnT07jo35R95VZoXCxdWH/968VT3G9/0VFzIfnYzO7J1S82tuYC27fDz
+dVO1oeofep9d/dFY48F191reS7me4FRX/1eNC1eS968d7D4zdLvKf71+z3r7z/HS
+5mV3zs5fKM0VTr+ycnLynmi1pyp1463qLunnixWBcTEnP/f2rVBLAzE/rS2KLbyU
+OeFsLKuZawg9Fm3fdLKvxX+1PVieJxQ+o9Q/Wv3rtZuR4fsyP7WcLjq/5ugAXYQN
+G568VjA5fPf9wb++8J0cP/tduG28OW/fmvj8nl/6Hx+4fOzMJ3ceiY8en/FP1QRC
+F5ufGFp84OH9ZZPb3gs+WPLjsHP+g079QNfpwLv5H5edW9V3qcIxjNHfNq3fW/B6
++diKHj0eIpunsbR2onLDyyMnNuZWauXLD1QuvnCk4OnPa8Lg0Ja69uKZ3X+su7zi
+xe6mbLy/ZH/gbw==
+=8p11
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/thomastoye
+
+==================================================================
+
