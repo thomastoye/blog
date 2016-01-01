@@ -73,7 +73,7 @@ menu:
   Archives: /archives
   Github: https://github.com/thomastoye
   Resume: http://registry.jsonresume.org/thomastoye
-  last.fm: https://gist.github.com/thomastoye/a080ec1890fc86e34b60
+  last.fm: http://www.last.fm/user/siyck
   Mail: mailto:toye.thomas@gmail.com
   "GPG Key": https://gist.github.com/thomastoye/a080ec1890fc86e34b60
   Facebook: http://facebook.com/thomas.toye
@@ -87,4 +87,12 @@ sidebar: right
 widgets:
 - archive
 - recent_posts
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:thomastoye/thomastoye.github.io.git
+  branch: master
+
 
