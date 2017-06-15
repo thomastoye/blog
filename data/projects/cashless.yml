@@ -1,0 +1,8 @@
+modalID: 1
+title: Cashless payment
+date: 2015-01-09
+img: cabin.png
+client: Business Applications course
+clientLink: "//github.com/thomastoye/nmct-cashless"
+category: Full Stack Development
+description: As the final project for the course Business Applications, I created a system for cashless payment. It includes an ASP.NET administration back-end, a WPF management application for organisations which uses REST and OAuth, a cashless register and a client application, which can read Belgian eIDs.

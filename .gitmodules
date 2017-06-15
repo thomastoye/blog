@@ -1,0 +1,6 @@
+[submodule "themes/dimension"]
+	path = themes/dimension
+	url = https://github.com/sethmacleod/dimension.git
+[submodule "themes/hugo-freelancer-theme"]
+	path = themes/hugo-freelancer-theme
+	url = https://github.com/digitalcraftsman/hugo-freelancer-theme

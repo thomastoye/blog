@@ -1,0 +1,126 @@
+# Site settings
+baseurl = "https://example.org/"
+languageCode = "en-gb"
+title = "Thomas Toye"
+theme = "hugo-freelancer-theme"
+
+
+[params]
+
+    # You can use Markdown syntax for urls [text](//url.to/source) for
+    # most longer texts.
+
+    # To provide some metadata for search engines feel free to add a few
+    # information about you and your website.
+    name = "Thomas Toye"
+    description = "My awesome description"
+
+    # Since this template is static, the contact form uses www.formspree.io as a
+    # proxy. The form makes a POST request to their servers to send the actual
+    # email. Visitors can send up to a 1000 emails each month for free.
+    #
+    # What you need to do for the setup?
+    #
+    # - set your email address under 'email' below
+    # - upload the generated site to your server
+    # - send a dummy email youself to confirm your account
+    # - click the confirm link in the email from www.formspree.io
+    # - you're done. Happy mailing!
+    email = "thomas@toye.io"
+
+    # Custom assets
+	custom_css = []
+	custom_js  = []
+
+    [params.navigation]
+        brand = "Thomas Toye"
+
+
+    [params.header]
+        # Copy your own image into './static/img/'' if you wish
+        image = "profile.png"
+        name = "Thomas Toye"
+        subtitle = "Full-Stack Programmer"
+
+
+    [params.portfolio]
+        # All projects defined in their own files. You can find example projects
+        # at 'exampleSite/data/projects'. Copy the 'projects' folder into the 'data' directory
+        # at the root of this Hugo site.
+        # For more informtion take a look at the README.
+        title = "Portfolio"
+
+        [params.portfolio.modal]
+            client = "Client"
+            date = "Date"
+            category = "Category"
+            buttontext = "Close"
+
+
+    [params.about]
+        title = "About"
+        # The about text is splitted into a left and right column
+        left = "I am full stack developer, specializing in back end development. I mostly do Scala and Play Framework development, but I have experience ranging from PHP and Node.js to Python and Java."
+        right = "I have extensive training, coaching and organisational experience, through my volunteering efforts in the youth work space."
+
+        [params.about.button]
+            text = "Contact me"
+            link = "mailto:thomas@toye.io"
+            icon = "envelope"
+
+    [params.footer]
+        copyright = "Powered by [Hugo](//gohugo.io). Theme created by [Start Bootstrap](//startbootstrap.com)."
+
+        [params.footer.location]
+            title = "Location"
+            # Postal address (add as many lines as necessary)
+            address = ["3481 Melrose Place", "Beverly Hills, CA 90210"]
+
+        [params.footer.social]
+            title = "Social"
+            # All icons using Fontawesome's icon font. Look at fortawesome.github.io/Font-Awesome/icons/
+            # for more icons. The icons are represented by their corresponding
+            # CSS class.
+            [[params.footer.social.networks]]
+                icon = "fa-github"
+                link = "//github.com/thomastoye"
+
+            [[params.footer.social.networks]]
+                icon = "fa-linkedin"
+                link = "//www.linkedin.com/in/thomastoye"
+
+            [[params.footer.social.networks]]
+                icon = "fa-comment"
+                link = "//m.me/thomas.toye"
+
+            [[params.footer.social.networks]]
+                icon = "fa-facebook"
+                link = "//www.facebook.com/thomas.toye"
+
+            [[params.footer.social.networks]]
+                icon = "fa-google-plus"
+                link = "//plus.google.com/u/0/103896341525674372319"
+
+            [[params.footer.social.networks]]
+                icon = "fa-lastfm"
+                link = "//last.fm/user/siyck"
+
+            [[params.footer.social.networks]]
+                icon = "fa-medium"
+                link = "//medium.com/@thomastoye"
+
+            [[params.footer.social.networks]]
+                icon = "fa-twitter"
+                link = "//twitter.com/thomas_toye"
+
+            [[params.footer.social.networks]]
+                icon = "fa-instagram"
+                link = "//twitter.com/thomas_toye"
+
+            [[params.footer.social.networks]]
+                icon = "fa-envelope"
+                link = "mailto:thomas@toye.io"
+
+        [params.footer.credits]
+            title = "About Freelancer"
+            text = "Freelance is a free to use, open source Bootstrap theme created by [Start Bootstrap](//startbootstrap.com)."

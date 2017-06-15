@@ -1,0 +1,8 @@
+modalID: 5
+title: Internship @ Waylay
+date: 2016-06-03
+img: waylay.png
+client: Waylay
+clientLink: "//waylay.io"
+category: Web Development
+description:  Improved the performance of the message broker three-fold using a custom-built load tester. Investigated and implemented alternatives for data storage (different MongoDB driver, moving metadata to ElasticSearch, implemented a message cache using Redis, ...). Modularized and refactored the Play application and implemented MQTT as an alternative message source, next to HTTP and Websockets, which required modifying an MQTT broker for authentication.

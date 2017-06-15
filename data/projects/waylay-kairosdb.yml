@@ -1,0 +1,8 @@
+modalID: 6
+title: KairosDB migration
+date: 2016-08-12
+img: kairosdb-scala.png
+client: Waylay
+clientLink: "//waylay.io"
+category: Back End Development
+description: At Waylay, I migrated the non-performant InfluxDB database to KairosDB after investigating time-series databases. I performed performance analysis, researched production viability and advised and implemented a migration strategy. The migration happened live, with no customer impact. I wrote a [Scala KairosDB interface](//github.com/waylayio/kairosdb-scala) that we later open sourced.

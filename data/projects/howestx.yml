@@ -1,0 +1,8 @@
+modalID: 3
+title: HowestX - Branded MOOC platform for Howest
+date: 2015-06-19
+img: cabin.png
+client: Howest
+clientLink: "//github.com/howestx"
+category: Web Development
+description: Together with three other students, I worked on a branded MOOC platform for Howest (pilot project). We used the edX platform as a base to add other functionality (such as integrating with existing single-sign on infrastructure, custom branding and theme) and researched opportunities for Howest, such as the possibility of trading in certificates earned on the platform for real ECTS credits, deployment on existing college servers, licensing, development workflows and usability.
